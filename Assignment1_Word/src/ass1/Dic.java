@@ -1,9 +1,15 @@
+package ass1;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ *  Dic class cung cấp thông tin về danh sách các từ 
+ *  trong từ điển hệ thống và các chức năng như thêm,sửa,xóa từ,thông tin của từ trong hệ thông
+ *  
+ */
 
 public class Dic{
 	
@@ -18,6 +24,7 @@ public class Dic{
 	}
 	/*
 	 * hiển thị danh sách các từ có trong từ điển của hẹ thống
+	 * 
 	 */
 	public static void Total_Dic(){
 		List<String> keys = new ArrayList<String>(GetDic().keySet());
@@ -32,13 +39,21 @@ public class Dic{
 	}
 	/*
 	 * Tìm kiếm từ khóa trong từ diển của hẹ thống
+	 * @param: tên từ khóa cần tìm
 	 */
 	public static void Search_Word(String Key) {
-		if (GetDic().containsKey(Key)){
+		if (!GetDic().containsKey(Key)){
 			System.out.println("Key Exist");
 			return;
 		}
+		System.out.println(GetDic().get(Key));
 	}
+	
+	/*
+	 * kiểm tra sự tồn tại của từ khóa trong từ diển của hẹ thống
+	 * @param: tên từ khóa cần kt
+	 * @return: true nếu từ khóa tồn tại và false nếu không
+	 */
 	
 	public static boolean isExists(String Key){
 		return GetDic().containsKey(Key);
@@ -46,6 +61,8 @@ public class Dic{
 	/*
 	 * Thêm từ vào khóa trong từ diển của hê thống , nếu đã có từ khóa trong hệ thống
 	 * thì đưa ra thông báo và thoát
+	 * @param: tên từ khóa cần them
+	 * @param: đối tượng Word chứ thông tin về từ khóa sẽ thêm vào
 	 */
 	public static void Add_Word(String Key, Word word) {
 		if (GetDic().containsKey(Key)) {
@@ -71,6 +88,7 @@ public class Dic{
 	
 	/*
 	 * xóa từ khóa trong từ diển của hê thống 
+	 * @param: tên từ khóa cần them
 	 */
 	public static void Remove_Word(String Key){
 		if(GetDic().containsKey(Key)){

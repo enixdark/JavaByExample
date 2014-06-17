@@ -1,10 +1,14 @@
+package ass1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ *  Data_Score class cung cấp thông tin về danh sách các thứ hạng của những người tham gia chơi
+ *  
+ */
 public class Data_Score {
 	private static List<Data_Score> Data = null;
 	private Date Date_play;

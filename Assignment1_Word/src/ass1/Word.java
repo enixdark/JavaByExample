@@ -1,3 +1,4 @@
+package ass1;
 
 public class Word {
 	private String Word;

@@ -1,0 +1,10 @@
+cua,con gì đi ngang,1
+khung long,loài động vật đã bị tuyệt chủng cách đây hàng triệu năm,1
+time,từ thời gian trong tiếng anh là gì,1
+A,chữ cái đầu tiên trong bảng chữ cái latin,1
+3,1+1=?,3
+troll, ***** ,10
+B,B,1
+U,U,2
+C,C,3
+K,K,6

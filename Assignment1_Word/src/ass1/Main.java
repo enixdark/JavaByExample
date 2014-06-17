@@ -11,9 +11,20 @@ public class Main {
 
 	private static Scanner input = new Scanner(System.in);
 	
+	private static boolean tryParseInt(String value)  
+	{  
+	     try{  
+	         Integer.parseInt(value);  
+	         return true;  
+	     } 
+	     catch(NumberFormatException e){  
+	          return false;  
+	     }  
+	}
 	/**
 	 * Show the main menu when start program
 	 */
+	
 	public static void MainMenu(){
 		
 		int select = 0;
@@ -38,6 +49,7 @@ public class Main {
 		}
 		}while(select!=4);
 	}
+	
 	
 	/**
 	 *  
@@ -75,12 +87,15 @@ public class Main {
 		Collections.shuffle(subdic);
 		
 		for(int i = 0; i < 10 ; i++){
-			System.out.print(i);
+			System.out.print(i+". ");
 			
 			String keys = subdic.get(i);
 			
 			Word word = Dic.GetDic().get(keys);
+			System.out.printf("\n");
+			System.out.print(answer.isEmpty());
 			while(answer.isEmpty()){
+				
 				System.out.printf("desciption : %s\n",word.getGuess_request());
 				answer = input.nextLine();
 				score += answer.equalsIgnoreCase(keys) ? word.getPoint() : 0;
@@ -96,6 +111,7 @@ public class Main {
 		int select = 0;
 		String word = "";
 		String description = "";
+		String s;
 		int point = 0;
 		List<Integer> CRUD = Arrays.asList(2,3,4,5);
 		do{
@@ -110,12 +126,16 @@ public class Main {
 		select = input.nextInt();
 		if(CRUD.contains(select)){
 			System.out.println("lựa chọn từ khóa : ");
+			input.skip("[\r\n]+");
 			word = input.nextLine();
 			if(!Dic.isExists(word)){
 				System.out.println("nhập thông tin gợi ý hay mô tả : ");
 				description = input.nextLine();
 				System.out.println("nhập điểm số : ");
-				point = input.nextInt();
+				do{
+					s = input.nextLine();
+				}while(!tryParseInt(s));
+				point = Integer.parseInt(s);
 			}
 		}
 		switch (select) {
@@ -142,7 +162,17 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-
+		Dic.Add_Word("U",new Word("U","1",1));
+		Dic.Add_Word("A",new Word("A","2",1));
+		Dic.Add_Word("C",new Word("C","2",3));
+		Dic.Add_Word("D",new Word("D","3",3));
+		Dic.Add_Word("T",new Word("T","3",3));
+		Dic.Add_Word("G",new Word("G","6",3));
+		Dic.Add_Word("H",new Word("HT","7",3));
+		Dic.Add_Word("I",new Word("I","7",3));
+		Dic.Add_Word("K",new Word("K","r",3));
+		Dic.Add_Word("M",new Word("M","g",3));
+		Dic.Add_Word("L",new Word("L","g",3));
 		MainMenu();
 		
 	}

@@ -30,7 +30,7 @@ public class Data_Score {
 	
 	public static Data_Score Create_data(Date Date_play,int score){
 		Data_Score data = new Data_Score(Date_play, score);
-		Data.add(data);
+		GetData().add(data);
 		return data;
 	}
 	
